@@ -8,7 +8,23 @@ urls = [
     "http://delimeira.educacao.sp.gov.br",
     "http://www.educacao.sp.gov.br/",
     "https://sed.educacao.sp.gov.br/",
-   
+    "https://lanahv.github.io/lanatcc/",
+    "https://diogoapenaaas.github.io/TCCdiogo/",
+    "https://melrobeth.github.io/TCCElizabeth/",
+    "https://gabiasouza.github.io/gabietccc/",
+    "https://gabiiduarte.github.io/gabitcc/",
+    "https://giovanaliveira.github.io/Giovana-TCC/",
+    "https://shinenight.netlify.app/#",
+    "https://iasmin000.github.io/TCCiasmin/",
+    "https://isabella9823.github.io/IsabellaTCC/",
+    "https://josexdl.github.io/tccjose/",
+    "https://lehhestevess.github.io/lehhestevess-newsite/index.html",
+    "https://lorerds2.github.io/Lorenatcc/",
+    "https://mirellasfs.github.io/tccmirella/",
+    "https://tccnicholas.netlify.app/",
+    "https://cainelles.github.io/tccpaulo/inicio.html",
+    "https://vinicius223.github.io/TCCvinicius/",
+ 
 ]
 
 # Função para abrir as URLs
