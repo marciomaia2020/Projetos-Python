@@ -3,17 +3,12 @@ import time
 
 # Lista de URLs que você deseja abrir
 urls = [
-    "https://www.fiec.com.br/site/procsel/listar.do",
-    "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/",
-    "http://delimeira.educacao.sp.gov.br",
-    "http://www.educacao.sp.gov.br/",
-    "https://sed.educacao.sp.gov.br/",
     "https://lanahv.github.io/lanatcc/",
     "https://diogoapenaaas.github.io/TCCdiogo/",
     "https://melrobeth.github.io/TCCElizabeth/",
     "https://gabiasouza.github.io/gabietccc/",
     "https://gabiiduarte.github.io/gabitcc/",
-    "https://giovanaliveira.github.io/Giovana-TCC/",
+    "https://giovanaliveira.github.io/giovanaTCC/",
     "https://shinenight.netlify.app/#",
     "https://iasmin000.github.io/TCCiasmin/",
     "https://isabella9823.github.io/IsabellaTCC/",
@@ -24,14 +19,13 @@ urls = [
     "https://tccnicholas.netlify.app/",
     "https://cainelles.github.io/tccpaulo/inicio.html",
     "https://vinicius223.github.io/TCCvinicius/",
- 
 ]
 
 # Função para abrir as URLs
 def abrir_urls(urls, delay=5):
     for url in urls:
         webbrowser.open(url)
-        #webbrowser.get('firefox').open(url) Abre uma URL em um navegador especifico.
+        #webbrowser.get('firefox').open(url) # Abre uma URL em um navegador especifico.
         print(f"Abrindo: {url}")
         time.sleep(delay)  # Espera um pouco antes de abrir a próxima URL
 
