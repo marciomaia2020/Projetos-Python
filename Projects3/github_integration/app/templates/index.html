@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories</title>
+    <link rel="stylesheet" href="/Projects3/github_integration/app/static/css/style.css">
+</head>
+<body>
+    <h1>Buscar Repositórios do GitHub</h1>
+    <form method="post">
+        <label for="username">Nome de Usuário:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+<p>Adicinoar aqui a lista com repositórios disponiveis</p>
+
+<div class="repositories">
+    <ol>
+        <li>Lanahv</li>
+        <li>DiogoApenaaas</li>
+        <li>MELROBETH</li>
+        <li>Gabiasouza</li>
+        <li>gabiiduarte</li>
+        <li>giovanaliveira</li>
+        <li>loisaaz</li>
+        <li>iasmin000</li>
+        <li>Isabella9823</li>
+        <li>Josexdl</li>
+        <li>lehhestevess</li>
+        <li>lorerds2</li>
+        <li>mirellasfs</li>
+        <li>NicholasSZ7</li>
+        <li>cainelles</li>
+        <li>vinicius223</li>
+    </ol>
+</div>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if repos %}
+        <h2>Repositórios de {{ repos[0].owner.login }}</h2>
+        <ol>
+            {% for repo in repos %}
+                <li><a href="{{ repo.html_url }}">{{ repo.name }}</a></li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+
+
+
+</body>
+</html>
