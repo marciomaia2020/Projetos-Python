@@ -1,0 +1,108 @@
+
+pw Admin
+Set-ExecutionPolicy RemoteSigned
+
+python -m venv ConversorImagens
+
+PS D:\MEUSSITESEPROJETOS\PROJETOS\PROJETOS-PYTHON\ConversorImagens> dir
+Diretório: D:\MEUSSITESEPROJETOS\PROJETOS\PROJETOS-PYTHON\ConversorImagens
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        08/09/2024     18:36                ConversorImagens
+-a----        08/09/2024     18:24           1099 LICENSE
+-a----        08/09/2024     18:24            156 README.md
+
+
+PS D:\MEUSSITESEPROJETOS\PROJETOS\PROJETOS-PYTHON\ConversorImagens> cd ConversorImagens
+PS D:\MEUSSITESEPROJETOS\PROJETOS\PROJETOS-PYTHON\ConversorImagens\ConversorImagens> Scripts\Activate
+(ConversorImagens) PS D:\MEUSSITESEPROJETOS\PROJETOS\PROJETOS-PYTHON\ConversorImagens\ConversorImagens>
+
+
+pip install Flask Pillow Flask-Cors
+pip install Flask
+pip install Pillow
+python.exe -m pip install --upgrade pip
+http://127.0.0.1:5000
+
+
+Dono do projeto gera o arquivo requeriments
+pip freeze > requirements.txt
+
+
+Outro usuario instala o arquivo requeriments
+pip install -r requirements.txt
+
+
+Prepara aulas, Cria Avaliações, Corrige Avaliações etc
+https://www.teachy.com.br
+
+Criar Texto Chatgpt
+Criar Imagens Lonardo AI
+Criar Apresentações Gamma
+Criar Músicas Suno
+Criar Mapas Mentais Chat Mind
+Criar Design Redes Sociais Microsoft Designer
+Criar Logos	Kittl
+Editar Videos	Capcut
+Planejar Viagens Gemini
+Clonar Voz	Eleven Labs
+Transcrever Áudio Notta AI
+
+
+
+
+ddr3 so-dimm pc3-10600
+dois slots
+8
+8
+16
+
+4
+8
+12
+
+
+
+
+SE NA CELULA 
+Q2 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 e 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA B3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE) 
+
+SE NA CELULA 
+Q3 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 ATÉ 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA C3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE)
+
+SE NA CELULA 
+Q4 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 ATÉ 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA D3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE)
+
+SE NA CELULA 
+Q5 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 ATÉ 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA E3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE)
+
+SE NA CELULA 
+Q6 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 ATÉ 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA F3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE)
+
+SE NA CELULA 
+Q7 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 ATÉ 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA G3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE)
+
+SE NA CELULA 
+Q8 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 ATÉ 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA H3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE)
+
+SE NA CELULA 
+Q9 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 ATÉ 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA I3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE)
+
+SE NA CELULA 
+Q10 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 ATÉ 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA J3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE)
+
+SE NA CELULA 
+Q11 DA PLANILHA chamada Testes aparecer o valor ENTRE 1 ATÉ 15
+ENTÃO COLOQUE ESTE VALOR A PARTIR DA CELULA K3 DA PLANILHA chamada CARTELA (O PROXIMO VALOR DEVERARÁ SER ADICIONADO NA B4,B5,B6 E ASSIM POR DIANTE)
+
