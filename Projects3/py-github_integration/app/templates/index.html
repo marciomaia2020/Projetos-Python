@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories</title>
+    <link rel="stylesheet" href="/Projects3/github_integration - Copia/app/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Buscar Repositórios do GitHub</h1>
+        <form method="post">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- Lista original de repositórios -->
+        <h2>Repositórios de Exemplos:</h2>
+        <div class="repositories">
+            <ol>
+                <li>Lanahv</li>
+                <li>DiogoApenaaas</li>
+                <li>MELROBETH</li>
+                <li>Gabiasouza</li>
+                <li>gabiiduarte</li>
+                <li>giovanaliveira</li>
+                <li>loisaaz</li>
+                <li>iasmin000</li>
+                <li>Isabella9823</li>
+                <li>Josexdl</li>
+                <li>lehhestevess</li>
+                <li>lorerds2</li>
+                <li>mirellasfs</li>
+                <li>NicholasSZ7</li>
+                <li>cainelles</li>
+                <li>vinicius223</li>
+            </ol>
+        </div>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        
+        {% if repos %}
+            <h2>Repositórios de {{ repos[0].owner.login }} (Total: {{ repos|length }})</h2>
+            
+            <!-- Tabela de repositórios -->
+            <div class="repositories-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Criado</th>
+                            <th>Atualizado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for repo in repos %}
+                            <tr>
+                                <td><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></td>
+                                <td>{{ repo.description or "Sem descrição" }}</td>
+                                <td>{{ repo.created_at.strftime('%d/%m/%Y') }}</td>
+                                <td>{{ repo.updated_at.strftime('%d/%m/%Y') }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
