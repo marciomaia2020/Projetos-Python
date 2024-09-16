@@ -1,0 +1,26 @@
+#Listas
+# Trabalhando com listas
+lista = [1, 2, 3, 4, 5]
+print(lista)
+
+#Tuplas
+# Trabalhando com tuplas
+tupla = (1, 2, 3)
+print(tupla)
+
+
+#Dicionários
+# Trabalhando com dicionários
+dicionario = {"nome": "Alice", "idade": 30}
+print(dicionario)
+
+#Sets
+# Trabalhando com sets
+conjunto = {1, 2, 3, 4, 5}
+print(conjunto)
+
+
+#talvez
+
+#sets
+

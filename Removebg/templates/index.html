@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remover Fundo de Imagens</title>
+    <!-- Usando url_for para referenciar o arquivo CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Remova o Fundo de Sua Imagem</h1>
+        <div id="upload-area">
+            <p>Arraste e solte sua imagem aqui ou clique para fazer o upload</p>
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
+        </div>
+        <div id="output"></div>
+    </div>
+    <!-- Usando url_for para referenciar o arquivo JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
