@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação do Projeto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+            background-color: #f4f4f4;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        .comment {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Documentação do Projeto GitHub Repositories</h1>
+        
+        <div class="section">
+            <h2>1. Estrutura do Projeto</h2>
+            <pre><code>
+project_name/
+│
+├── app/
+│   ├── __init__.py
+│   ├── routes.py
+│   ├── models.py
+│   ├── static/
+│   │   ├── css/
+│   │   │   ├── style.css
+│   │   │   ├── reset.css
+│   │   │   └── components/
+│   │   │       ├── header.css
+│   │   │       ├── footer.css
+│   │   │       └── buttons.css
+│   │   ├── js/
+│   │   │   ├── script.js
+│   │   │   └── utils.js
+│   │   ├── img/
+│   │       ├── logo.png
+│   │       └── banner.jpg
+│   │
+│   └── templates/
+│       ├── base.html
+│       ├── index.html
+│       └── includes/
+│           ├── header.html
+│           └── footer.html
+│
+├── config.py
+├── run.py
+└── requirements.txt
+            </code></pre>
+            <p class="comment">A estrutura do projeto inclui a pasta <code>app</code> que contém os arquivos principais da aplicação Flask, como <code>routes.py</code> e <code>models.py</code>. A pasta <code>static</code> contém arquivos estáticos como CSS, JavaScript e imagens. A pasta <code>templates</code> é onde estão os arquivos HTML. O arquivo <code>config.py</code> contém configurações, <code>run.py</code> é o script de inicialização, e <code>requirements.txt</code> lista as dependências do projeto.</p>
+        </div>
+        
+        <div class="section">
+            <h2>2. Arquivo HTML: index.html</h2>
+            <pre><code>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories</title>
+    <link rel="stylesheet" href="/Projects3/github_integration/app/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Buscar Repositórios do GitHub</h1>
+        <form method="post">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- Lista original de repositórios -->
+        <h2>Repositórios de Exemplos:</h2>
+        <div class="repositories">
+            <ol>
+                <li>Lanahv</li>
+                <li>DiogoApenaaas</li>
+                <li>MELROBETH</li>
+                <li>Gabiasouza</li>
+                <li>gabiiduarte</li>
+                <li>giovanaliveira</li>
+                <li>loisaaz</li>
+                <li>iasmin000</li>
+                <li>Isabella9823</li>
+                <li>Josexdl</li>
+                <li>lehhestevess</li>
+                <li>lorerds2</li>
+                <li>mirellasfs</li>
+                <li>NicholasSZ7</li>
+                <li>cainelles</li>
+                <li>vinicius223</li>
+            </ol>
+        </div>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        
+        {% if repos %}
+            <h2>Repositórios de {{ repos[0].owner.login }} (Total: {{ repos|length }})</h2>
+            
+            <!-- Tabela de repositórios -->
+            <div class="repositories-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Data de Criação</th>
+                            <th>Data da Última Atualização</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for repo in repos %}
+                            <tr>
+                                <td><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></td>
+                                <td>{{ repo.description or "Sem descrição" }}</td>
+                                <td>{{ repo.created_at.strftime('%d/%m/%Y') }}</td>
+                                <td>{{ repo.updated_at.strftime('%d/%m/%Y') }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
+            </code></pre>
+            <p class="comment">O arquivo <code>index.html</code> contém o layout da página. Inclui um formulário para buscar repositórios GitHub, uma lista de repositórios de exemplo, e, se houver repositórios retornados, exibe-os em uma tabela. O uso de <code>{% if repos %}</code> permite exibir a tabela somente quando houver dados.</p>
+        </div>
+        
+        <div class="section">
+            <h2>3. Código Python: app.py</h2>
+            <pre><code>
+from flask import Flask, render_template, request
+import requests
+from datetime import datetime
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    repos = []
+    error = None
+    if request.method == "POST":
+        username = request.form.get("username")
+        url = f"https://api.github.com/users/{username}/repos"
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            repos = response.json()
+            # Formatar as datas
+            for repo in repos:
+                repo['created_at'] = datetime.strptime(repo['created_at'], "%Y-%m-%dT%H:%M:%SZ")
+                repo['updated_at'] = datetime.strptime(repo['updated_at'], "%Y-%m-%dT%H:%M:%SZ")
+        else:
+            error = f"Não foi possível encontrar repositórios para o usuário {username}."
+
+    return render_template("index.html", repos=repos, error=error)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+            </code></pre>
+            <p class="comment">O arquivo <code>app.py</code> define a aplicação Flask e a rota principal. Quando o formulário é enviado, ele faz uma requisição para a API do GitHub e formata as datas dos repositórios. As informações são então passadas para o template <code>index.html</code>. A função <code>datetime.strptime</code> é usada para converter as datas do formato string para objetos datetime.</p>
+        </div>
+
+        <div class="section">
+            <h2>4. Arquivo CSS: style.css</h2>
+            <pre><code>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+.repositories {
+    margin-top: 20px;
+}
+
+.repositories ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.repositories li {
+    padding: 10px 0;
+    font-size: 1.1em;
+    border-bottom: 1px solid #ddd;
+}
+
+.repositories li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.repositories li a:hover {
+    color: #4CAF50;
+}
+
+.repositories p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.repositories small {
+    color: #999;
+}
+
+.repositories-table {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.repositories-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.repositories-table th, .repositories-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.repositories-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.repositories-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.repositories-table tr:hover {
+    background-color: #ddd;
+}
+            </code></pre>
+            <p class="comment">O arquivo <code>style.css</code> contém o estilo da página. Ele define a aparência da página, incluindo o layout, cores, e estilos para tabelas e formulários. As regras para <code>body</code>, <code>.container</code>, e outros elementos garantem que a página seja visualmente agradável e funcional.</p>
+        </div>
+    </div>
+</body>
+</html>

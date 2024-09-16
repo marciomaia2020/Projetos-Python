@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação de Números</title>
+    <style>
+        #resultado {
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+        }
+        input{
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        function compararNumeros() {
+            // Obter valores dos inputs
+            let a = parseFloat(document.getElementById('valorA').value);
+            let b = parseFloat(document.getElementById('valorB').value);
+
+            // Verificar se os valores são números válidos
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById('resultado').textContent = 'Por favor, insira números válidos.';
+                document.getElementById('resultado').classList.add('error');
+                return;
+            }
+
+            // Comparar os valores
+            let mensagem = '';
+            if (a > b) {
+                mensagem = `${a} é maior que ${b}`;
+                document.getElementById('resultado').classList.remove('error');
+            } else if (b > a) {
+                mensagem = `${b} é maior que ${a}`;
+                document.getElementById('resultado').classList.remove('error');
+            } else {
+                mensagem = 'Os valores são iguais';
+                document.getElementById('resultado').classList.add('error');
+            }
+
+            // Exibir a mensagem
+            document.getElementById('resultado').textContent = mensagem;
+        }
+    </script>
+</head>
+<body>
+    <h1>Comparação de Números</h1>
+    <form onsubmit="event.preventDefault(); compararNumeros();">
+        <label for="valorA">Insita o valor do número <b>A</b>:</label>
+        <input type="number" id="valorA" required>
+        <br /><br />
+        <label for="valorB">Insira o valor do número <b>B</b>:</label>
+        <input type="number" id="valorB" required>
+        <br /><br />
+        <button type="submit">Comparar</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+</html>
+
