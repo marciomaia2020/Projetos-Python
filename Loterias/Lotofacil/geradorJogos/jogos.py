@@ -15,8 +15,12 @@ selected_jogos1 = np.random.choice(len(jogos), num_jogos_por_planilha, replace=F
 df_jogos1 = pd.DataFrame([jogos[i] for i in selected_jogos1])
 
 # Definir o caminho absoluto para salvar os arquivos
-caminho_arquivo_1 = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_1.xlsx'
-caminho_arquivo_2 = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_2.xlsx'
+# caminho_arquivo_1 = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_1.xlsx'
+# caminho_arquivo_2 = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_2.xlsx'
+
+caminho_arquivo_1 = r'D:\Projetos\Celio\Marcio Fernando Maia\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_1.xlsx'
+caminho_arquivo_2 = r'D:\Projetos\Celio\Marcio Fernando Maia\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_2.xlsx'
+
 
 # Salvar a primeira planilha
 df_jogos1.to_excel(caminho_arquivo_1, index=False, header=False)
