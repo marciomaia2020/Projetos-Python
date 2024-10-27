@@ -19,10 +19,11 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
 # Acesse o CodePen desejado
-url = 'https://codepen.io/bcarvalho/pen/gWPvJB'
+#url = 'https://codepen.io/bcarvalho/pen/gWPvJB'
+url ='https://www.ilovepdf.com/pt'
 driver.get(url)
 
-# Mensagem informativa
+# Mens agem informativa
 print("Aguarde enquanto o conteúdo do site carrega...")
 
 # Aguarde até que o elemento do conteúdo esteja presente (ajuste conforme necessário)
