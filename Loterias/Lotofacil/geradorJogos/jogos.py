@@ -18,8 +18,8 @@ df_jogos1 = pd.DataFrame([jogos[i] for i in selected_jogos1])
 # caminho_arquivo_1 = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_1.xlsx'
 # caminho_arquivo_2 = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_2.xlsx'
 
-caminho_arquivo_1 = r'D:\Projetos\Celio\Marcio Fernando Maia\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_1.xlsx'
-caminho_arquivo_2 = r'D:\Projetos\Celio\Marcio Fernando Maia\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_2.xlsx'
+caminho_arquivo_1 = r'D:\Projetos\Celio\Marcio_Fernando_Maia\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_1.xlsx'
+caminho_arquivo_2 = r'D:\Projetos\Celio\Marcio_Fernando_Maia\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil_2.xlsx'
 
 
 # Salvar a primeira planilha
