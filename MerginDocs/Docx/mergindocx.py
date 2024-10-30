@@ -6,12 +6,15 @@ def merge_documents(documents, output_file):
     merged_document = Document()
 
     for document in documents:
-        # Carrega o documento
-        sub_document = Document(document)
-        
-        # Adiciona o conteúdo do documento ao documento mesclado
-        for element in sub_document.element.body:
-            merged_document.element.body.append(element)
+        if os.path.exists(document):  # Verifica se o documento existe
+            # Carrega o documento
+            sub_document = Document(document)
+            
+            # Adiciona o conteúdo do documento ao documento mesclado
+            for element in sub_document.element.body:
+                merged_document.element.body.append(element)
+        else:
+            print(f"Arquivo não encontrado: {document}")
     
     # Salva o documento mesclado
     merged_document.save(output_file)
@@ -20,8 +23,9 @@ def merge_documents(documents, output_file):
 # Exemplo de uso
 if __name__ == "__main__":
     # Caminho dos arquivos
-    base_path = r"H:\Meu Drive\Doc´s\XLS\Processos Seletivos\ATUAIS - a partir de 09-08-23\JUNHO-24 - Depois\FUNCAMP\1232024\Questões"
-    
+	#base_path = r"H:\Meu Drive\Doc´s\XLS\Processos Seletivos\ATUAIS - a partir de 09-08-23\JUNHO-24 - Depois\FUNCAMP\1232024\Questões"
+    base_path = r"C:\Docs\Docx"
+
     # Lista dos documentos que você deseja mesclar
     documents = [
         os.path.join(base_path, '1-Perguntas_Arquitetura_Computadores.docx'),
