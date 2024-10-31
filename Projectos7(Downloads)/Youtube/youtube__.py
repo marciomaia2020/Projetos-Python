@@ -32,6 +32,6 @@ if input_text:
     urls = input_text.strip().split()
     baixar_videos(urls)
 else:
-    messagebox.showinfo("Informação", "Nenhuma URL inserida.")
+    messagebox.showinfo("Informação", "Nenhuma URL inserida foi encontrada.")
 
 
