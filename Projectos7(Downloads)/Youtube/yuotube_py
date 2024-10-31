@@ -1,0 +1,20 @@
+from yt_dlp import YoutubeDL
+
+def baixar_videos(urls, caminho='C:\\Users\\Marcio Fernando Maia\\Videos\\Captures'):
+    ydl_opts = {
+        'outtmpl': f'{caminho}/%(title)s.%(ext)s',  # Define o caminho de saída
+        'format': 'best'  # Escolhe a melhor qualidade de vídeo disponível
+    }
+    with YoutubeDL(ydl_opts) as ydl:
+        for url in urls:
+            try:
+                print(f'Baixando: {url.strip()}')
+                ydl.download([url.strip()])
+                print(f'Download concluído para {url.strip()}\n')
+            except Exception as e:
+                print(f'Ocorreu um erro ao tentar baixar o vídeo: {url}. Erro: {e}')
+
+# Caixa de entrada para múltiplas URLs
+urls_input = input('Informe as URLs dos vídeos do YouTube, separadas por vírgula: ')
+urls_list = urls_input.split(',')
+baixar_videos(urls_list)

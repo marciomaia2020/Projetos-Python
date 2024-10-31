@@ -72,7 +72,8 @@ dezenas = list(range(1, 32))  # Dezenas de 1 a 31
 jogos = list(combinations(dezenas, 7))
 
 # Número de jogos por planilha
-num_jogos_por_planilha = 524271  # Ajuste conforme necessário
+num_jogos_por_planilha = 524286  # Ajuste conforme necessário
+# FICA FALTANDO UM JOGO NO FINAL
 
 # Selecionar jogos para a primeira planilha
 selected_jogos1 = np.random.choice(len(jogos), num_jogos_por_planilha, replace=False)

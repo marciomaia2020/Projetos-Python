@@ -3,6 +3,10 @@ import pandas as pd
 import numpy as np
 from itertools import combinations
 
+
+# Avisar que a criação das planilhas foi iniciada
+print("As planilhas começaram a ser criadas aguarde!")
+
 # Gerar todas as combinações de 15 dezenas entre 25
 dezenas = list(range(1, 26))  # Dezenas de 1 a 25
 jogos = list(combinations(dezenas, 15))
