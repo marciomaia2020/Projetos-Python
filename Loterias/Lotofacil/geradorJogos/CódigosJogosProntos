@@ -1,0 +1,105 @@
+'''
+#ESTE CÓDIGO GERA A PERGUNTA AO USUÁRIO
+import pandas as pd
+import numpy as np
+from itertools import combinations
+
+# Função para solicitar o número de jogos desejado ao usuário
+def solicitar_numero_jogos():
+    while True:
+        try:
+            num_jogos = int(input("Digite quantos jogos você deseja gerar: "))
+            if num_jogos > 0:
+                return num_jogos
+            else:
+                print("O número de jogos deve ser maior que zero.")
+        except ValueError:
+            print("Por favor, digite um número válido.")
+
+# Gerar todas as combinações de 15 dezenas entre 25
+dezenas = list(range(1, 26))  # Dezenas de 1 a 25
+jogos = list(combinations(dezenas, 15))
+
+# Solicitar ao usuário o número de jogos a serem gerados
+num_jogos_desejados = solicitar_numero_jogos()
+
+# Verificar se o número de jogos desejado não ultrapassa o limite possível de combinações
+if num_jogos_desejados > len(jogos):
+    print(f"O número máximo de combinações possíveis é {len(jogos)}.")
+    num_jogos_desejados = len(jogos)
+
+# Definir o caminho absoluto para salvar o arquivo
+caminho_arquivo = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil.xlsx'
+
+
+# Selecionar jogos aleatórios
+selected_jogos = np.random.choice(len(jogos), num_jogos_desejados, replace=False)
+df_jogos = pd.DataFrame([jogos[i] for i in selected_jogos])
+
+# Salvar os jogos gerados em uma planilha
+df_jogos.to_excel('jogos_lotofacil.xlsx', index=False, header=False)
+
+print(f"{num_jogos_desejados} jogos foram gerados e salvos em 'jogos_lotofacil.xlsx'.")
+
+import pandas as pd
+import numpy as np
+from itertools import combinations
+import os
+from openpyxl import load_workbook
+
+# Função para solicitar o número de jogos desejado ao usuário
+def solicitar_numero_jogos():
+    while True:
+        try:
+            num_jogos = int(input("Digite quantos jogos você deseja gerar: "))
+            if num_jogos > 0:
+                return num_jogos
+            else:
+                print("O número de jogos deve ser maior que zero.")
+        except ValueError:
+            print("Por favor, digite um número válido.")
+
+# Gerar todas as combinações de 15 dezenas entre 25
+dezenas = list(range(1, 26))  # Dezenas de 1 a 25
+jogos = list(combinations(dezenas, 15))
+
+# Solicitar ao usuário o número de jogos a serem gerados
+num_jogos_desejados = solicitar_numero_jogos()
+
+# Verificar se o número de jogos desejado não ultrapassa o limite possível de combinações
+if num_jogos_desejados > len(jogos):
+    print(f"O número máximo de combinações possíveis é {len(jogos)}.")
+    num_jogos_desejados = len(jogos)
+
+# Definir o caminho absoluto para salvar o arquivo
+caminho_arquivo = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\Lotofacil\geradorJogos\jogos_lotofacil.xlsx'
+
+# Selecionar jogos aleatórios sem repetição
+selected_jogos = list(set(np.random.choice(len(jogos), num_jogos_desejados, replace=False)))
+df_jogos = pd.DataFrame([jogos[i] for i in selected_jogos])
+
+# Salvar os jogos gerados em uma planilha Excel
+df_jogos.to_excel(caminho_arquivo, index=False, header=False)
+
+# Ajustar automaticamente a largura das colunas usando openpyxl
+wb = load_workbook(caminho_arquivo)
+ws = wb.active
+
+# Ajustar largura das colunas
+for col in ws.columns:
+    max_length = 0
+    column = col[0].column_letter  # Obter a letra da coluna
+    for cell in col:
+        try:
+            if len(str(cell.value)) > max_length:
+                max_length = len(str(cell.value))
+        except:
+            pass
+    adjusted_width = (max_length + 2) * 1.2
+    ws.column_dimensions[column].width = adjusted_width
+
+# Salvar o arquivo Excel com as colunas ajustadas
+wb.save(caminho_arquivo)
+
+print(f"{num_jogos_desejados} jogos foram gerados e salvos em '{caminho_arquivo}' com colunas ajustadas e sem repetição.")
+'''

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remover Fundo da Imagem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Remover Fundo da Imagem</h1>
+
+        <!-- Área de Upload -->
+        <div id="upload-area" class="upload-area">
+            <p>Arraste ou selecione uma imagem para upload</p>
+            <input type="file" id="file-input" accept="image/*" style="display:none;">
+        </div>
+
+        <!-- Exibição da Imagem Original -->
+        <div id="original-image"></div>
+
+        <!-- Exibição da Imagem Processada -->
+        <div id="processed-image"></div>
+
+        <!-- Botão para Download -->
+        <a id="download-btn" style="display:none;" href="#" download="imagem-processada.png">Baixar Imagem Processada</a>
+
+        <div id="output"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

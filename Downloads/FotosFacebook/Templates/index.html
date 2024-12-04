@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baixar Fotos do Facebook</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+   
+
+</head>
+<body>
+    <h1>Baixar Fotos de um Perfil do Facebook</h1>
+    <form action="/download" method="POST">
+        <label for="profile_url">URL do Perfil:</label><br>
+        <input type="text" id="profile_url" name="profile_url" placeholder="Cole a URL do perfil do Facebook"><br><br>
+
+        <label for="access_token">Token de Acesso:</label><br>
+        <input type="text" id="access_token" name="access_token" placeholder="Cole seu token de acesso"><br><br>
+
+        <button type="submit">Baixar Fotos</button>
+    </form>
+</body>
+</html>

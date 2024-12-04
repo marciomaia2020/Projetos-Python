@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories</title>
+    <!--<link rel="stylesheet" href="/Projects3/py-github_integration/app/static/css/style.css">-->
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+.repositories {
+    margin-top: 20px;
+}
+
+.repositories ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.repositories li {
+    padding: 10px 0;
+    font-size: 1.1em;
+    border-bottom: 1px solid #ddd;
+}
+
+.repositories li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.repositories li a:hover {
+    color: #4CAF50;
+}
+
+.repositories p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.repositories small {
+    color: #999;
+}
+
+.repositories-table {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.repositories-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.repositories-table th, .repositories-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.repositories-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.repositories-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.repositories-table tr:hover {
+    background-color: #ddd;
+}
+table{
+    border: #45a049;
+}
+</style>
+
+
+
+
+</head>
+<body>
+    <div class="container">
+        <h1>Buscar Repositórios do GitHub</h1>
+        <form method="post">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Buscar</button>
+        </form>
+
+        <!-- Lista original de repositórios -->
+        <h2>Repositórios de Exemplos:</h2>
+        <div class="repositories">
+            <ol>
+                <li>Lanahv</li>
+                <li>DiogoApenaaas</li>
+                <li>MELROBETH</li>
+                <li>Gabiasouza</li>
+                <li>gabiiduarte</li>
+                <li>giovanaliveira</li>
+                <li>loisaaz</li>
+                <li>iasmin000</li>
+                <li>Isabella9823</li>
+                <li>Josexdl</li>
+                <li>lehhestevess</li>
+                <li>lorerds2</li>
+                <li>mirellasfs</li>
+                <li>NicholasSZ7</li>
+                <li>cainelles</li>
+                <li>vinicius223</li>
+                <li>marciomaia2020</li>
+            </ol>
+        </div>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        
+        {% if repos %}
+            <h2>Repositórios de {{ repos[0].owner.login }} (Total: {{ repos|length }})</h2>
+            
+            <!-- Tabela de repositórios -->
+            <div class="repositories-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Criado</th>
+                            <th>Atualizado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for repo in repos %}
+                            <tr>
+                                <td><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></td>
+                                <td>{{ repo.description or "Sem descrição" }}</td>
+                                <td>{{ repo.created_at.strftime('%d/%m/%Y') }}</td>
+                                <td>{{ repo.updated_at.strftime('%d/%m/%Y') }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>

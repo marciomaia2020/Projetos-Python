@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações dos Animais</title>
+    <!--<link rel="stylesheet" href="{{ url_for('/projetc/static', filename='style.css') }}">-->
+    <link rel="stylesheet" href="/project/static/style.css">
+</head>
+<body>
+    <h1>Cadastro de Animais</h1>
+    <form method="post">
+        <h2>Primeiro Animal</h2>
+        <label for="raca1">Raça:</label>
+        <input type="text" id="raca1" name="raca1" required><br>
+        <label for="cor1">Cor:</label>
+        <input type="text" id="cor1" name="cor1" required><br>
+        <label for="patas1">Número de Patas:</label>
+        <input type="number" id="patas1" name="patas1" required><br>
+        
+        <h2>Segundo Animal</h2>
+        <label for="raca2">Raça:</label>
+        <input type="text" id="raca2" name="raca2" required><br>
+        <label for="cor2">Cor:</label>
+        <input type="text" id="cor2" name="cor2" required><br>
+        <label for="patas2">Número de Patas:</label>
+        <input type="number" id="patas2" name="patas2" required><br>
+        
+        <button type="submit">Enviar</button>
+    </form>
+    
+    {% if animais %}
+        <h2>Informações dos Animais:</h2>
+        <ul>
+            {% for animal in animais %}
+                <li>{{ animal }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
