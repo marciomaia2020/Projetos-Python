@@ -28,7 +28,7 @@ def index():
 if __name__ == "__main__":
     app.run(debug=True)
 """
-"""
+
 from flask import Flask, render_template, request
 import requests
 from datetime import datetime
@@ -67,7 +67,7 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
-"""
+
 
 """
 Nota
@@ -80,7 +80,7 @@ response = requests.get(url, headers=headers)
 
 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
 """
-
+"""
 from flask import Flask, render_template, request
 import requests
 from datetime import datetime
@@ -123,3 +123,4 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+"""

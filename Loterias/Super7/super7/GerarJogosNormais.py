@@ -3,14 +3,22 @@ import pandas as pd
 import numpy as np
 from itertools import product
 from openpyxl import load_workbook
+from pathlib import Path  # Para determinar dinamicamente o caminho da pasta Downloads
 
-# Função para verificar e criar o diretório se não existir
+# Função para verificar e criar o diretório, se necessário
 def verificar_criar_diretorio(caminho_diretorio):
     if not os.path.exists(caminho_diretorio):
         print(f"Diretório '{caminho_diretorio}' não encontrado. Criando o diretório...")
         os.makedirs(caminho_diretorio)
     else:
         print(f"Diretório '{caminho_diretorio}' já existe.")
+
+# Obter o caminho da pasta Downloads do usuário
+pasta_downloads = str(Path.home() / "Downloads")
+
+# Caminhos dos arquivos na pasta Downloads
+caminho_arquivo1 = os.path.join(pasta_downloads, "jogos_super_sete_1.xlsx")
+caminho_arquivo2 = os.path.join(pasta_downloads, "jogos_super_sete_2.xlsx")
 
 # Gerar todas as combinações possíveis para o Super Sete (7 colunas, números de 0 a 9)
 print("Gerando todas as combinações possíveis para o Super Sete...")
@@ -19,16 +27,8 @@ jogos = list(product(colunas, repeat=7))  # Combinações de 7 números (1 por c
 print(f"Total de combinações geradas: {len(jogos)}")
 
 # Número de jogos por planilha
-num_jogos_por_planilha = 524286  # Ajuste conforme necessário
+num_jogos_por_planilha = 524287  # Ajuste conforme necessário
 print(f"Selecionando {num_jogos_por_planilha} jogos para cada planilha...")
-
-# Caminho absoluto para salvar as planilhas
-caminho_arquivo1 = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\SuperSete\jogos_super_sete_1.xlsx'
-caminho_arquivo2 = r'D:\MEUSSITESEPROJETOS\Projetos\Projetos-Python\Loterias\SuperSete\jogos_super_sete_2.xlsx'
-
-# Verificar se os diretórios existem, se não, criar
-verificar_criar_diretorio(os.path.dirname(caminho_arquivo1))
-verificar_criar_diretorio(os.path.dirname(caminho_arquivo2))
 
 # Selecionar jogos para a primeira planilha
 print("Selecionando jogos para a primeira planilha...")
